@@ -19,8 +19,7 @@
       "mail": "Email",
       "livenessState": "Liveness state",
       "readinessState": "Readiness state",
-      "ping": "Application",
-      "r2dbc": "Ma`lumotlar bazasi"
+      "ping": "Application"
     },
     "table": {
       "service": "Servis",

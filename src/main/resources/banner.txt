@@ -6,5 +6,4 @@
   ${AnsiColor.GREEN} |____/ ${AnsiColor.RED}  \__\___/ \___|_|\_\     \__, |\__,_|\__\___| \_/\_/ \__,_|\__, |     |___/\___|_|    \_/ |_|\___\___|
   ${AnsiColor.GREEN}        ${AnsiColor.RED}                          |___/                             |___/
 
-${AnsiColor.BRIGHT_BLUE}:: Stock 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: aziz.husenov@gmail.com ::${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::

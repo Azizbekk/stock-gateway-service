@@ -17,10 +17,12 @@ logging:
   level:
     ROOT: INFO
     tech.jhipster: INFO
-    com.asot.stockgateway: INFO
+    com.stock.gateway: INFO
 
 eureka:
   instance:
+    appname: ${spring.application.name}
+    instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
     prefer-ip-address: true
   client:
     service-url:
@@ -34,7 +36,18 @@ management:
 
 spring:
   application:
-    name: stockGatewayService
+    name: prodstockgatewayservice
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://192.168.10.64:8180/auth/realms/mvd-realm
+        registration:
+          oidc:
+            client-id: mvd-client
+            client-secret: HJx77EBECGtITNAnE4STAZPk1pyZiOzk
+            scope: openid, profile, email, offline_access # last one for refresh token
   devtools:
     restart:
       enabled: false
@@ -48,18 +61,10 @@ spring:
         max-attempts: 100
       uri: http://admin:${jhipster.registry.password}@localhost:8761/config
       # name of the config server's property source (file.yml) that we want to use
-      name: stockGatewayService
+      name: ${spring.application.name}
       profile: prod
       label: main # toggle to switch to a different version of the configuration as stored in git
       # it can be set to any label, branch or commit of the configuration source Git repository
-  # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
-  liquibase:
-    contexts: prod
-    url: jdbc:postgresql://localhost:5432/stockGatewayService
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/stockGatewayService
-    username: stockGatewayService
-    password:
   thymeleaf:
     cache: true
   sleuth:
@@ -76,18 +81,6 @@ spring:
     locator:
       discovery:
         enabled: true
-  security:
-    oauth2:
-      client:
-        provider:
-          oidc:
-            issuer-uri: http://192.168.10.64:8180/auth/realms/mvd-realm
-        registration:
-          oidc:
-            client-id: mvd-client
-            client-secret: HJx77EBECGtITNAnE4STAZPk1pyZiOzk
-            scope: openid, profile, email, offline_access # last one for refresh tokens
-
 # ===================================================================
 # To enable TLS in production, generate a certificate using:
 # keytool -genkey -alias stockgatewayservice -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650

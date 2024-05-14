@@ -23,7 +23,7 @@ plugins {
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
-group = "com.asot.stockgateway"
+group = "com.stock.gateway"
 version = "0.0.1-SNAPSHOT"
 
 description = ""
@@ -82,7 +82,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClass = "com.asot.stockgateway.StockGatewayServiceApp"
+    mainClass = "com.stock.gateway.StockGatewayServiceApp"
 }
 
 test {
@@ -209,8 +209,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-mail"
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-    implementation "org.springframework.boot:spring-boot-starter-data-r2dbc"
-    testImplementation "org.testcontainers:postgresql"
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation ("org.springframework.boot:spring-boot-starter-webflux") {
         exclude module: "spring-boot-starter-tomcat"
@@ -238,8 +236,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-oauth2-client"
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
     implementation ("org.springdoc:springdoc-openapi-webmvc-core")
-    implementation "org.postgresql:postgresql"
-    implementation "io.r2dbc:r2dbc-postgresql"
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     annotationProcessor "org.hibernate:hibernate-jpamodelgen:${hibernateVersion}"
@@ -252,8 +248,6 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:${junitPlatformLauncherVersion}'
     testImplementation "com.tngtech.archunit:archunit-junit5-api:${archunitJunit5Version}"
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunitJunit5Version}"
-    testImplementation "com.h2database:h2"
-    testImplementation "io.r2dbc:r2dbc-h2"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
