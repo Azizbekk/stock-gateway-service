@@ -28,6 +28,8 @@ eureka:
       defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
 
 spring:
+  application:
+    name: stockGatewayService
   devtools:
     restart:
       enabled: true
@@ -71,6 +73,17 @@ spring:
     locator:
       discovery:
         enabled: true
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://192.168.10.64:8180/auth/realms/mvd-realm
+        registration:
+          oidc:
+            client-id: mvd-client
+            client-secret: HJx77EBECGtITNAnE4STAZPk1pyZiOzk
+            scope: openid, profile, email, offline_access # last one for refresh tokens
 
 server:
   port: 8086
